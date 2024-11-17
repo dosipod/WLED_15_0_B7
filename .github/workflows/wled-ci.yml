@@ -66,7 +66,7 @@ jobs:
     - name: 'ALDIY- UPLOAD ARTIFACRS'
       uses: actions/upload-artifact@v4
       with:
-        name: ALDIY_${{ env.NOW }}_${{ env.RELXX }}
+        name: ALDIY_Reop_WLED_15_0_B7_Branch_WLED_15_ALDIY_FIXES_${{ env.NOW }}_${{ env.RELXX }}
 #--------------------------------------------------------------------------------------------------------------
         
         path: |
