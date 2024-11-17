@@ -56,9 +56,17 @@ jobs:
       run: pip install -r requirements.txt
     - name: Build firmware
       run: pio run -e ${{ matrix.environment }}
-    - uses: actions/upload-artifact@v4
+#-----------------------------------------aldiy add date and release name to zip------------------------------------------------
+    - name: 'ALDIY- Set the date and relese  as variable'
+      run:  |
+        echo "NOW=$(date +'%y_%m_%d_T%H%M')" >> $GITHUB_ENV
+        cd   build_output/release/
+        echo "RELXX=$(echo *.bin)" >> $GITHUB_ENV
+    - name: 'ALDIY- UPLOAD ARTIFACRS'
+      uses: actions/upload-artifact@v4
       with:
-        name: firmware-${{ matrix.environment }}
+        name: ALDIY_Reop_WLED_15_0_B7_Branch_0_15_${{ env.NOW }}_${{ env.RELXX }}
+#--------------------------------------------------------------------------------------------------------------
         path: |
           build_output/release/*.bin
           build_output/release/*_ESP02*.bin.gz
