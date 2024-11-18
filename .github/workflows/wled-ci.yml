@@ -72,7 +72,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         #name: ALDIY_${{github.actor}}_Repo_${{ env.REPO_NAME}}_Branch_${{ env.BRANCH_NAME}}_Date_${{ env.NOW }}_Art_${{ env.RELXX }}
-        name: ALDIY_${{ env.REPO_NAME}}_${{ env.BRANCH_NAME}}_Date_${{ env.NOW }}_Arti_${{ env.RELXX }}
+        #name: ALDIY_${{ env.REPO_NAME}}_${{ env.BRANCH_NAME}}_Date_${{ env.NOW }}_Arti_${{ env.RELXX }}
+        name: ALDIY_${{ env.BRANCH_NAME}}_Date_${{ env.NOW }}_Arti_${{ env.RELXX }}
 #--------------------------------------------------------------------------------------------------------------
         
         path: |
@@ -116,5 +117,5 @@ jobs:
 
       - name: AL-DIY-FIN COMMENT 
         run: |
-         echo "### Take the bins and shutup! :rocket:" 
-         echo "### Dnt be a pussy! :cat:" 
+         echo "### Take the bins and shutup! :rocket:" >> $GITHUB_STEP_SUMMARY
+         echo "### Dnt be pussy! :cat:" >> $GITHUB_STEP_SUMMARY
