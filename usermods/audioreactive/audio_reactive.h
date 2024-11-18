@@ -1591,10 +1591,12 @@ class AudioReactive : public Usermod {
         infoArr = user.createNestedArray(F("Audio Source"));
         if (audioSyncEnabled & 0x02) {
           // UDP sound sync - receive mode
-          infoArr.add(F("UDP sound sync"));
+          infoArr.add(F("UDP AR sync"));
           if (udpSyncConnected) {
             if (millis() - last_UDPTime < 2500)
-              infoArr.add(F(" - receiving"));
+           //   infoArr.add(F(" - receiving"));
+	   // ALDIY add the audio sync port to info page 
+	     infoArr.add(audioSyncPort);
             else
               infoArr.add(F(" - idle"));
           } else {
