@@ -56,16 +56,21 @@ jobs:
       run: pip install -r requirements.txt
     - name: Build firmware
       run: pio run -e ${{ matrix.environment }}
-#-----------------------------------------aldiy add date and release name to zip------------------------------------------------
-    - name: 'ALDIY- Set the date and relese  as variable'
+#-----------------------------------------aldiy add date and relase name------------------------------------------------
+    - name: 'ALDIY- Set the date , relese ..ETC  as variable'
       run:  |
         echo "NOW=$(date +'%y_%m_%d_T%H%M')" >> $GITHUB_ENV
         cd   build_output/release/
+        
         echo "RELXX=$(echo *.bin)" >> $GITHUB_ENV
+        echo "REPO_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
+        echo "BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
+        echo "REPO_OWNER=${{ github.event.pull_request.head.repo.owner.login }}" >> $GITHUB_ENV
+
     - name: 'ALDIY- UPLOAD ARTIFACRS'
       uses: actions/upload-artifact@v4
       with:
-        name: ALDIY_Reop_WLED_15_0_B7_Branch_gif_${{ env.NOW }}_${{ env.RELXX }}
+        name: ALDIY_${{github.actor}}_Repo_${{ env.REPO_NAME}}_Branch_${{ env.BRANCH_NAME}}_Date_${{ env.NOW }}_Art_${{ env.RELXX }}
 #--------------------------------------------------------------------------------------------------------------
         path: |
           build_output/release/*.bin
@@ -100,3 +105,7 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm test
+      - name: AL-DIY-FIN COMMENT 
+        run: |
+         echo "### Take the bins and shutup! :rocket:" 
+         echo "### Dnt be a pussy! :cat:" 
