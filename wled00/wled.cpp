@@ -1045,16 +1045,18 @@ void WLED::handleStatusLED()
   }
   #endif
 
+   // ALDIY  Nov 11,2024  change the ledstatus to blink if wifi is not connected 
   if (WLED_CONNECTED) {
     c = RGBW32(0,255,0,0);
-    ledStatusType = 2;
+    ledStatusType = 0;
   } else if (WLED_MQTT_CONNECTED) {
     c = RGBW32(0,128,0,0);
-    ledStatusType = 4;
+    ledStatusType = 0;
   } else if (apActive) {
     c = RGBW32(0,0,255,0);
     ledStatusType = 1;
   }
+
   if (ledStatusType) {
     if (millis() - ledStatusLastMillis >= (1000/ledStatusType)) {
       ledStatusLastMillis = millis();
