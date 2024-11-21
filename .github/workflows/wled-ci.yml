@@ -118,4 +118,4 @@ jobs:
       - name: AL-DIY-FIN COMMENT 
         run: |
          echo "### Take the bins and shutup! :rocket:" >> $GITHUB_STEP_SUMMARY
-         echo "### Dnt be pussy! :cat:" >> $GITHUB_STEP_SUMMARY
+         echo "### Dnt a be pussy! :cat:" >> $GITHUB_STEP_SUMMARY
