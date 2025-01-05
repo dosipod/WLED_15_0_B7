@@ -242,6 +242,12 @@
 #include "../usermods/LD2410_v2/usermod_ld2410.h"
 #endif
 
+#ifdef USERMOD_ALDIY
+#include "../usermods/usermod_aldiy/usermod_aldiy.h"
+#endif
+
+
+
 void registerUsermods()
 {
 /*
@@ -469,5 +475,9 @@ void registerUsermods()
 
   #ifdef USERMOD_POV_DISPLAY
   UsermodManager::add(new PovDisplayUsermod());
+  #endif
+
+  #ifdef USERMOD_ALDIY
+  usermods.add(new AldiyUsermod());
   #endif
 }
