@@ -175,11 +175,11 @@ public:
   }
 };
 
-const char InternalTemperatureUsermod::_name[] PROGMEM = "MCU Temperature";
-const char InternalTemperatureUsermod::_enabled[] PROGMEM = "Enabled";
-const char InternalTemperatureUsermod::_loopInterval[] PROGMEM = "Loop Interval";
-const char InternalTemperatureUsermod::_activationThreshold[] PROGMEM = "Activation Threshold";
-const char InternalTemperatureUsermod::_presetToActivate[] PROGMEM = "Preset To Activate";
+const char AldiyUsermod::_name[] PROGMEM = "MCU Temperature";
+const char AldiyUsermod::_enabled[] PROGMEM = "Enabled";
+const char AldiyUsermod::_loopInterval[] PROGMEM = "Loop Interval";
+const char AldiyUsermod::_activationThreshold[] PROGMEM = "Activation Threshold";
+const char AldiyUsermod::_presetToActivate[] PROGMEM = "Preset To Activate";
 
 void AldiyUsermod::publishMqtt(const char *state, bool retain)
 {
