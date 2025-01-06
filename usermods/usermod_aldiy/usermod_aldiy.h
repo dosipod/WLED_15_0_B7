@@ -181,7 +181,7 @@ const char InternalTemperatureUsermod::_loopInterval[] PROGMEM = "Loop Interval"
 const char InternalTemperatureUsermod::_activationThreshold[] PROGMEM = "Activation Threshold";
 const char InternalTemperatureUsermod::_presetToActivate[] PROGMEM = "Preset To Activate";
 
-void InternalTemperatureUsermod::publishMqtt(const char *state, bool retain)
+void AldiyUsermod::publishMqtt(const char *state, bool retain)
 {
 #ifndef WLED_DISABLE_MQTT
   // Check if MQTT Connected, otherwise it will crash the 8266
