@@ -68,7 +68,7 @@ jobs:
         echo "BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
         echo "REPO_OWNER=${{ github.event.pull_request.head.repo.owner.login }}" >> $GITHUB_ENV
 
-    - name: 'ALDIY- UPLOAD ARTIFACRS'
+    - name: 'ALDIY- UPLOAD artifacts'
       uses: actions/upload-artifact@v4
       with:
         #name: ALDIY_${{github.actor}}_Repo_${{ env.REPO_NAME}}_Branch_${{ env.BRANCH_NAME}}_Date_${{ env.NOW }}_Art_${{ env.RELXX }}
