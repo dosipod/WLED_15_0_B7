@@ -165,6 +165,12 @@ void publishMqtt()
   strcat_P(subuf, PSTR("/g"));
   mqtt->publish(subuf, 0, retainMqttMsg, s);         // optionally retain message (#2263)
 
+  // aldiy test adding mqtt entery
+  sprintf_P(s, PSTR("%u"), bri);
+  strlcpy(subuf, mqttDeviceTopic, MQTT_MAX_TOPIC_LEN + 1);
+  strcat_P(subuf, PSTR("/f"));
+  mqtt->publish(subuf, 0, retainMqttMsg, s);        
+
   sprintf_P(s, PSTR("#%06X"), (col[3] << 24) | (col[0] << 16) | (col[1] << 8) | (col[2]));
   strlcpy(subuf, mqttDeviceTopic, 33);
   strcat_P(subuf, PSTR("/c"));
